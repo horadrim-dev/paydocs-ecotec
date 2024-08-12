@@ -27,6 +27,7 @@ import { SidebarMenuComponent } from './menus/sidebar-menu/sidebar-menu.componen
 import { RippleModule } from 'primeng/ripple';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { HomeComponent } from './home/home.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HomeComponent } from './home/home.component';
     MatDivider,
     BadgeModule,
     RippleModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    PanelMenuModule,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
