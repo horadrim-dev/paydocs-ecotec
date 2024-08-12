@@ -10,6 +10,8 @@ services:
       - default
       # - proxy
     working_dir: /app
+    ports: 
+      - 5432:5432
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./backend/app:/app:rw
