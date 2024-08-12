@@ -60,7 +60,7 @@ export class AuthService {
                         // save auth user data
                         localStorage.setItem('auth-data', JSON.stringify(currentUser));
 
-                        console.log('[AUTH] loggged in as: ', JSON.stringify(currentUser));
+                        // console.log('[AUTH] loggged in as: ', JSON.stringify(currentUser));
                     }
                     return response
                 }),

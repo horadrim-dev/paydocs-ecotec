@@ -22,7 +22,7 @@ class DebtorViewSet(viewsets.ReadOnlyModelViewSet):
     Provides retrieve and list functions for the Debtor model 
     """
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsCityParamDefined, ) #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! isAuth
+    permission_classes = (IsAuthenticated, IsCityParamDefined, )
     pagination_class = ApiPagination
     filterset_class = DebtorFilter
 
@@ -35,7 +35,7 @@ class DebtorViewSet(viewsets.ReadOnlyModelViewSet):
         return CITIES_PARAMS[city]["debtor_serializer"]
 
     @action(detail=True, methods=['get'], 
-            permission_classes=[IsCityParamDefined]) # !!!!!!!!!!!!!!!!!!!!IsAuthenticated
+            permission_classes=[IsAuthenticated, IsCityParamDefined])
     def debts(self, request, pk=None):
         """
         View for getting debts list of debtor.
