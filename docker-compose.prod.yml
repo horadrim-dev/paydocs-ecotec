@@ -10,8 +10,10 @@ services:
       - default
       # - proxy
     working_dir: /app
-    ports: 
-      - 5432:5432
+    # ports: 
+    #   - 5432:5432
+    # extra_hosts:
+    #   - "host.docker.internal:<docker0 IP>"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./backend/app:/app:rw
