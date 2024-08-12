@@ -1,0 +1,75 @@
+<h3>Карточки должника</h3>
+<hr>
+
+<p-table 
+    [value]="debtors" 
+    [lazy]="true"
+    (onLazyLoad)="loadData($event)"
+    [lazyLoadOnInit]="false"
+    [paginator]="true"
+    [rows]="page_size"
+    [totalRecords]="total"
+    [loading]="loading"
+    [filters]="filters"
+    [rowsPerPageOptions]="[1,25,50]"
+    [showCurrentPageReport]="false"
+    [tableStyle]="{ 'min-width': '10rem' }"
+    >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Город</th>
+            <th>Лицевой счет</th>
+            <th>ФИО</th>
+            <th>Адрес</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>
+                <p-columnFilter field="gorod" matchMode="equals" [showMenu]="false" [showClearButton]="false">
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-dropdown 
+                            [ngModel]="defaultCity" 
+                            [options]="cities" 
+                            (onChange)="filter($event.value?.value);cityChanged($event)" 
+                            placeholder="Все" 
+                            optionLabel="name" 
+                            [showClear]="false" 
+                            >
+                            <ng-template let-option pTemplate="item">
+                                <span>{{option.name}}</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="ls" [showMenu]="false"> </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="fio" [showMenu]="false" > </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="dom" [showMenu]="false" > </p-columnFilter>
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr>
+            <td>{{ currentCity.name }}</td>
+            <td>{{ item.ls }}</td>
+            <td>{{ item.fio }}</td>
+            <td>{{ item.dom }}</td>
+            <td>
+                <p-button  
+                    (click)="renderDocument(item)"
+                    [outlined]="true"
+                    >
+                    Сформировать
+                </p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-messages />

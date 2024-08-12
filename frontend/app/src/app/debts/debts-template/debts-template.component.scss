@@ -1,0 +1,88 @@
+::ng-deep .p-dialog {
+    box-shadow: none;
+    .p-dialog-header-maximize {
+        background-color: #fff;
+        scale: 1.5;
+        right: -40px;
+        bottom: -30px;
+        border: 1px solid #e6e6e6;
+    }
+    .p-dialog-header {
+        background: none;
+    }
+}
+.controls {
+    padding: 20px 10px;
+}
+.debts-wrapper{
+    font-family: Calibri;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #fff;
+    .table-container {
+        width: 70%;
+        .table-title {
+            font-size: 14px;
+        }
+        .debts-table{
+            th {
+                border: 2px solid #000;
+                font-size: 12px;
+                text-align: left;
+                vertical-align: top;
+            }
+            td {
+                text-align: right;
+                border: 2px solid #000;
+                font-size: 10px;
+            }
+        }
+    }
+
+    .underlined {
+        border-bottom: 1px solid #000;
+        display: inline-block;
+        .summarized {
+            font-size: 14px;
+        }
+    }
+
+}
+.no-border {
+    border:none !important;
+}
+@media print {
+    ::ng-deep {
+        .p-dialog .p-dialog-header {
+            display: none;
+        }
+        .p-dialog-mask {
+            position: absolute;
+        }
+        .p-dialog-content {
+            overflow-y: unset;
+        }
+    }
+    .no-print {
+        display: none;
+    }
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+    html {
+        background-color: #FFFFFF;
+        margin: 0px;
+    }
+    body {
+        border: solid 1px blue;
+        margin: 10mm 15mm 10mm 15mm;
+    }
+
+    table { break-inside:auto; }
+    tr    { break-inside:avoid; break-after:auto }
+    td    { break-inside:avoid; break-after:auto }
+    thead { display:table-header-group; }
+    // thead { display:table-header-group }
+    // tfoot { display:table-footer-group }
+}

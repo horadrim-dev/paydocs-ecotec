@@ -1,0 +1,76 @@
+<h3>Платежные документы</h3>
+<hr>
+<!-- <p-progressBar *ngIf="loading" mode="indeterminate" [style]="{ height: '6px' }" /> -->
+
+<p-table 
+    [value]="paymentDocuments" 
+    [lazy]="true"
+    (onLazyLoad)="loadData($event)"
+    [lazyLoadOnInit]="false"
+    [paginator]="true"
+    [rows]="page_size"
+    [totalRecords]="total"
+    [filters]="filters"
+    [loading]="loading"
+    [rowsPerPageOptions]="[1,25,50]"
+    [showCurrentPageReport]="false"
+    [tableStyle]="{ 'min-width': '10rem' }"
+    >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Город</th>
+            <th>Лицевой счет</th>
+            <th>ФИО</th>
+            <th>Адрес</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>
+                <p-columnFilter field="gorod" matchMode="equals" [showMenu]="false" [showClearButton]="false">
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-dropdown 
+                            [ngModel]="currentCity" 
+                            [options]="cities" 
+                            (onChange)="filter($event.value?.name);cityChanged($event);" 
+                            placeholder="Все" 
+                            optionLabel="name" 
+                            [showClear]="true" 
+                            >
+                            <ng-template let-option pTemplate="item">
+                                <span>{{option.name}}</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="ls" [showMenu]="false" > </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="fio" [showMenu]="false" > </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="text" field="ad" [showMenu]="false" > </p-columnFilter>
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-doc>
+        <tr>
+            <td>{{ doc.gorod }}</td>
+            <td>{{ doc.ls }}</td>
+            <td>{{ doc.fio }}</td>
+            <td>{{ doc.ad }}</td>
+            <td>
+                <p-button  
+                    (click)="renderDocument(doc)"
+                    [outlined]="true"
+                    >
+                    Сформировать
+                </p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-messages />

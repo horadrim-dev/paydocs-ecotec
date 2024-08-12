@@ -1,0 +1,55 @@
+<div *ngIf="currentUser">
+
+  <p-toolbar id="toolbar">
+      <div class="p-toolbar-group-start">
+        <p-button  
+          *ngIf="sidenav.mode === 'over'" 
+          (click)="sidenav.toggle()"
+          [text]="true"
+          [rounded]="true"
+          >
+          <mat-icon *ngIf="!sidenav.opened">
+              menu
+          </mat-icon>
+          <mat-icon *ngIf="sidenav.opened">
+              close
+          </mat-icon>
+      </p-button>
+        <p-button [text]="true" [label]="title" [rounded]="true" routerLink="/" />
+      </div>
+      <div class="p-toolbar-group-center">
+      </div>
+      <div class="p-toolbar-group-end">
+        <button 
+          *ngIf="currentUser"
+          pButton 
+          pRipple 
+          severity="secondary"
+          [outlined]="true"
+          type="button" 
+          [label]="currentUser.username" 
+          (click)="userMenu.toggle($event)">
+        </button>
+        <p-menu #userMenu [popup]="true" [model]="userMenuItems"></p-menu>
+      </div>
+  </p-toolbar>
+
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side" class="">
+      
+      <div class="sidebar-left-content">
+        <app-sidebar-menu></app-sidebar-menu>
+      </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet />
+      </div>
+
+      <p-toast key="toast"/>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

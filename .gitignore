@@ -1,0 +1,7 @@
+backend/venv
+backend/environments/prod.env
+frontend/nodeenv-v22.4.0
+frontend/app/src/environments/environment.prod.ts
+backend/app/staticfiles
+backend/app/mediafiles
+*.pyc

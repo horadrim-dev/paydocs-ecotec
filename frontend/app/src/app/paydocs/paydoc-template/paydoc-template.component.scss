@@ -1,0 +1,68 @@
+::ng-deep .p-dialog {
+    box-shadow: none;
+    .p-dialog-header-maximize {
+        background-color: #fff;
+        scale: 1.5;
+        right: -40px;
+        bottom: -30px;
+        border: 1px solid #e6e6e6;
+    }
+    .p-dialog-header {
+        background: none;
+    }
+}
+.controls {
+    padding: 20px 10px;
+}
+.doc {
+    font-family: Calibri;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #fff;
+    .doc-table{
+        width: 100%;
+        th {
+            border: 1px solid #000;
+            font-size: 12px;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+            border: 1px solid #000;
+            font-size: 10px;
+            &.no-border {
+                border-bottom: none;
+                border-left: none;
+                border-right: none;
+            }
+        }
+    }
+
+    .annotation {
+        border: 3px dashed #000;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+}
+@media print {
+    ::ng-deep .p-dialog .p-dialog-header {
+        display: none;
+    }
+    .no-print {
+        display: none;
+    }
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+    html {
+        background-color: #FFFFFF;
+        margin: 0px;
+    }
+    body {
+        border: solid 1px blue;
+        margin: 10mm 15mm 10mm 15mm;
+    }
+}

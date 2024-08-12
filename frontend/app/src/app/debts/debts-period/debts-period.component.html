@@ -1,0 +1,32 @@
+<div class="mb-4">Период за который будут сформированы задолженности</div>
+<div class="row">
+    <div class="col-4 justify-content-end">
+        <label for="min_period" class="me-3">От</label>
+        <p-calendar 
+            [(ngModel)]="min_period" 
+            view="month" 
+            dateFormat="mm-yy" 
+            inputId="min_period" 
+        />
+    </div>
+    <div class="col-4 justify-content-start" >
+        <label for="max_period" class="me-3">До</label>
+        <p-calendar 
+            [(ngModel)]="max_period" 
+            view="month" 
+            dateFormat="mm-yy" 
+            inputId="max_period" 
+            [readonlyInput]="true"
+        />
+    </div>
+    <div class="col-2 justify-content-end">
+        <p-button
+            pAutoFocus 
+            [autofocus]="true" 
+            (click)="finish()"
+            label="Сформировать"
+            >
+        </p-button>
+    </div>
+</div>
+    

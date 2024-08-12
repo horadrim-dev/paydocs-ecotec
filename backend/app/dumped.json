@@ -1,0 +1,166 @@
+[
+    {
+        "model": "debts.personalaccount",
+        "pk": 5220738,
+        "fields": {
+            "kv": null,
+            "fio": "Хзэев Николай Иванович",
+            "otk": null,
+            "zak": null,
+            "dom": "652640, Краснобродский пгт, 1-Й КВАРТАЛ, д. 1, кв. 10",
+            "pr": "1"
+        }
+    },
+    {
+        "model": "debts.personalaccount",
+        "pk": 5220739,
+        "fields": {
+            "kv": null,
+            "fio": "Пушкмн олай Иванович",
+            "otk": null,
+            "zak": null,
+            "dom": "652640, Краснобродский пгт, 1-Й КВАРТАЛ, д. 1, кв. 10",
+            "pr": "1"
+        }
+    },
+    {
+        "model": "debts.debt",
+        "pk": 1,
+        "fields": {
+            "ls": 5220738,
+            "period": "2020-06-01",
+            "nacis": 86.11,
+            "korekt": 0.0,
+            "pen": 0.0,
+            "dolgsud": 0.0,
+            "sitog": 86.11
+        }
+    },
+    {
+        "model": "debts.debt",
+        "pk": 2,
+        "fields": {
+            "ls": 5220738,
+            "period": "2020-07-01",
+            "nacis": 93.74,
+            "korekt": 0.0,
+            "pen": 0.0,
+            "dolgsud": 0.0,
+            "sitog": 93.74
+        }
+    },
+    {
+        "model": "debts.debt",
+        "pk": 3,
+        "fields": {
+            "ls": 5220739,
+            "period": "2020-06-01",
+            "nacis": 86.11,
+            "korekt": 0.0,
+            "pen": 0.0,
+            "dolgsud": 0.0,
+            "sitog": 86.11
+        }
+    },
+    {
+        "model": "debts.debt",
+        "pk": 4,
+        "fields": {
+            "ls": 5220739,
+            "period": "2020-07-01",
+            "nacis": 93.74,
+            "korekt": 0.0,
+            "pen": 0.0,
+            "dolgsud": 0.0,
+            "sitog": 93.74
+        }
+    },
+    {
+        "model": "debts.paymentdocument",
+        "pk": 1,
+        "fields": {
+            "index": 652612,
+            "gorod": "Дуброво п-ст",
+            "rayon": null,
+            "ulica": "Вулканская ул",
+            "dom": "10",
+            "kv": "0",
+            "pr": 1,
+            "period": "202406",
+            "ls": "5234674796",
+            "fio": "Хзэев Александр Сергеевич",
+            "opl_tko": 111.45,
+            "vh_saldo": 222.9,
+            "nacis": 111.45,
+            "kor": 0.0,
+            "opl": 111.45,
+            "ish_saldo": 222.9,
+            "vh_saldo_pen": 0.0,
+            "pen": 0.0,
+            "kor_pen": 0.0,
+            "opl_pen": 0.0,
+            "ish_saldo_pen": 0.0,
+            "ad": "652612, Дуброво п-ст, Гагарина ул, д. 2, кв. 0",
+            "active": "да",
+            "tip": "ИЖС",
+            "itog": 222.9,
+            "qr": "ST00012|Name=ООО Экологические Технологии|PersonalAcc=40702810013030000704|BankName=ФИЛИАЛ ЦЕНТРАЛЬНЫЙ БАНКА ВТБ (ПАО)|Bic=044525411|CorrespAcc=30101810145250000411|Sum=22290|Purpose=Коммунальные услуги|PayeeINN=4217127183|persAcc=5234674635|category=222222|Servicename=16685",
+            "uid": "Дуброво п-ст_ИЖС_652612",
+            "dolg_m": 1,
+            "soob": "",
+            "vh_saldo_s": 0.0,
+            "nacis_s": 0.0,
+            "kor_s": 0.0,
+            "opl_s": 0.0,
+            "ish_saldo_s": 0.0,
+            "itog_vse": 222.9,
+            "potok": 0,
+            "nn": 4,
+            "nns": 36
+        }
+    },
+    {
+        "model": "debts.paymentdocument",
+        "pk": 2,
+        "fields": {
+            "index": 652612,
+            "gorod": "Дуброво п-ст",
+            "rayon": null,
+            "ulica": "Вулканская ул",
+            "dom": "10",
+            "kv": "0",
+            "pr": 1,
+            "period": "202406",
+            "ls": "5234674797",
+            "fio": "Похер Александр Сергеевич",
+            "opl_tko": 111.45,
+            "vh_saldo": 222.9,
+            "nacis": 111.45,
+            "kor": 0.0,
+            "opl": 111.45,
+            "ish_saldo": 222.9,
+            "vh_saldo_pen": 0.0,
+            "pen": 0.0,
+            "kor_pen": 0.0,
+            "opl_pen": 0.0,
+            "ish_saldo_pen": 0.0,
+            "ad": "652612, Дуброво п-ст, Гагарина ул, д. 2, кв. 0",
+            "active": "да",
+            "tip": "ИЖС",
+            "itog": 222.9,
+            "qr": "ST00012|Name=ООО Экологические Технологии|PersonalAcc=40702810013030000704|BankName=ФИЛИАЛ ЦЕНТРАЛЬНЫЙ БАНКА ВТБ (ПАО)|Bic=044525411|CorrespAcc=30101810145250000411|Sum=22290|Purpose=Коммунальные услуги|PayeeINN=4217127183|persAcc=5234674635|category=222222|Servicename=16685",
+            "uid": "Дуброво п-ст_ИЖС_652612",
+            "dolg_m": 1,
+            "soob": "",
+            "vh_saldo_s": 0.0,
+            "nacis_s": 0.0,
+            "kor_s": 0.0,
+            "opl_s": 0.0,
+            "ish_saldo_s": 0.0,
+            "itog_vse": 222.9,
+            "potok": 0,
+            "nn": 4,
+            "nns": 36
+        }
+    }
+]
