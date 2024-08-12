@@ -1,11 +1,11 @@
 version: '3.2'
 services:
 
-  portfolio-backend:
+  paydocs-ecotec-backend:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    container_name: portfolio-backend
+    container_name: paydocs-ecotec-backend
     networks:
       - default
       - proxy
@@ -24,11 +24,11 @@ services:
     healthcheck:
       test: "exit 0"
   
-  portfolio-frontend:
+  paydocs-ecotec-frontend:
     build:
       context: ./frontend/
       dockerfile: Dockerfile
-    container_name: portfolio-frontend
+    container_name: paydocs-ecotec-frontend
     networks:
       - default
       - proxy
@@ -42,11 +42,11 @@ services:
       - staticfiles:/staticfiles:ro
       - mediafiles:/mediafiles:ro
     environment:
-      - VIRTUAL_HOST=portfolio.horadrim.keenetic.link
-      - LETSENCRYPT_HOST=portfolio.horadrim.keenetic.link
+      - VIRTUAL_HOST=paydocs-ecotec.horadrim.keenetic.link
+      - LETSENCRYPT_HOST=paydocs-ecotec.horadrim.keenetic.link
       - LETSENCRYPT_EMAIL=email.alexss@gmail.com
     depends_on:
-      portfolio-backend:
+      paydocs-ecotec-backend:
         condition: service_healthy
     restart: unless-stopped
 
@@ -56,7 +56,7 @@ volumes:
 
 networks:
   default:
-    name: portfolio
+    name: paydocs-ecotec
   proxy:
     name: 'proxy'
     external: true
