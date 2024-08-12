@@ -48,6 +48,18 @@ META_SITE_PROTOCOL = env('SITE_PROTOCOL')
 
 CORS_ALLOWED_ORIGINS = env('CORS_ALLOWED_ORIGINS')
 
+POSTGRES_USER=env("POSTGRES_USER")
+POSTGRES_PASSWORD=env("POSTGRES_PASSWORD")
+POSTGRES_HOST=env("POSTGRES_HOST")
+POSTGRES_PORT=env("POSTGRES_PORT")
+POSTGRES_DB=env("POSTGRES_DB")
+POSTGRES_IS_AVAIL = all([
+        POSTGRES_USER,
+        POSTGRES_PASSWORD,
+        POSTGRES_HOST,
+        POSTGRES_PORT,
+        POSTGRES_DB
+])
 # Application definition
 
 INSTALLED_APPS = [
@@ -61,12 +73,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
+    'django_prometheus',
 
     'debts',
     'paydocs',
 ]
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
 
@@ -77,6 +92,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 
 ]
 
@@ -103,13 +120,27 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if POSTGRES_IS_AVAIL:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django_prometheus.db.backends.postgresql",
+            'OPTIONS': {
+                'options': '-c search_path=ufkis_schema'
+            },
+            "NAME": POSTGRES_DB,
+            "USER": POSTGRES_USER,
+            "PASSWORD": POSTGRES_PASSWORD,
+            "HOST": POSTGRES_HOST,
+            "PORT": POSTGRES_PORT,
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
