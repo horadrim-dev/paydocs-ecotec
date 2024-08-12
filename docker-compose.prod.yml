@@ -8,7 +8,7 @@ services:
     container_name: paydocs-ecotec-backend
     networks:
       - default
-      - proxy
+      # - proxy
     working_dir: /app
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -31,8 +31,10 @@ services:
     container_name: paydocs-ecotec-frontend
     networks:
       - default
-      - proxy
+      # - proxy
     working_dir: /app
+    ports:
+      - 80:80
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./frontend/app:/app:rw
@@ -57,6 +59,6 @@ volumes:
 networks:
   default:
     name: paydocs-ecotec
-  proxy:
-    name: 'proxy'
-    external: true
+  # proxy:
+  #   name: 'proxy'
+  #   external: true
