@@ -34,7 +34,7 @@ services:
       # - proxy
     working_dir: /app
     ports:
-      - 80:80
+      - 81:80
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./frontend/app:/app:rw
