@@ -5,3 +5,4 @@ frontend/app/src/environments/environment.prod.ts
 backend/app/staticfiles
 backend/app/mediafiles
 *.pyc
+frontend/app/.angular

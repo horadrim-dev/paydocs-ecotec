@@ -1,6 +1,6 @@
 export const environment = {
-  production: true,
-  urlAddress: '/api',
+  production: false,
+  urlAddress: 'http://localhost:8003/api',
   jwtLogin: 'token',
   jwtRefresh: 'token/refresh',
   paymentDocumentsUrl: 'payment-documents',
