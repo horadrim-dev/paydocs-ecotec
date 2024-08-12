@@ -13,4 +13,6 @@ COPY app/ .
 
 RUN npm run build --production
 
-CMD ng serve --host 0.0.0.0 --port 80
+# CMD ng serve --host 0.0.0.0 --port 80
+FROM nginx:1.27.0-alpine
+COPY --from=build /app/dist/app/browser /usr/share/nginx/html
