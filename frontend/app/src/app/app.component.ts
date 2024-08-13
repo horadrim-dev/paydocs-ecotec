@@ -10,6 +10,7 @@ import { ToastService } from './shared/services/toast.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,11 +21,13 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   title = 'Сервис формирования долговых документов'
 
+
   currentUser: User | null = null;
   userMenuItems: MenuItem[] = [];
   ref: DynamicDialogRef | undefined;
   breadcrumb: MenuItem[] = [];
   home: MenuItem;
+  location: Location;
   locale_ru: any;
 
   constructor(
@@ -34,12 +37,14 @@ export class AppComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private observer: BreakpointObserver,
     private cdr: ChangeDetectorRef,  // нужно для фикса ошибки ExpressionChangedAfterItHasBeenCheckedError
+    private loc: Location
   ) {
     this._authService.currentUser.subscribe(x => this.currentUser = x)
     this.home = { 
       icon: "pi pi-home",
       command:(click)=>{this.router.navigate(['/']);}
     }; 
+    this.location = loc;
   }
 
   @ViewChild(MatSidenav)
@@ -89,6 +94,10 @@ export class AppComponent implements OnInit {
     if (this.currentUser === null) {
       this.loginDialog();
     }
+  }
+
+  isThisHomepage() : boolean {
+    return this.loc.isCurrentPathEqualTo("");
   }
 
   loginDialog() {

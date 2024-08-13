@@ -11,6 +11,13 @@
         background: none;
     }
 }
+:host {
+  ::ng-deep {
+    .mat-icon { 
+      color: #6ea5c6
+    }
+  }
+}
 .controls {
     padding: 20px 10px;
 }

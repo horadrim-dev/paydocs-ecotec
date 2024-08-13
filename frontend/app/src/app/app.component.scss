@@ -16,7 +16,9 @@ mat-sidenav-container {
         padding-right: 20px;
         padding-left: 20px;
         .content {
-            // height: calc(100% - 30px);
+            &.full-height {
+                height: calc(100% - 30px);
+            }
             border-radius: 10px;
             background: #fff;
             padding: 25px;
@@ -25,8 +27,13 @@ mat-sidenav-container {
         }
     }
 }
-:host ::ng-deep .p-breadcrumb {
-    background: unset;
-    border: unset;
-    padding: 1rem 1rem 0 1rem;
-} 
+:host ::ng-deep {
+     .p-button {
+        color: #6EA5C6;
+     }
+    .p-breadcrumb {
+        background: unset;
+        border: unset;
+        padding: 1rem 1rem 0 1rem;
+    } 
+}

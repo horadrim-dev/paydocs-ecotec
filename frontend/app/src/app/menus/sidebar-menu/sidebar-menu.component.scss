@@ -1,6 +1,16 @@
 :host {
-    ::ng-deep .p-menu {
-    width: 100%;
-    border: none;
+  ::ng-deep {
+    .p-menu {
+      width: 100%;
+      border: none;
+      .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+        background: #f9fdff;
+      }
+
+    }
+    .mat-icon { 
+      color: #6ea5c6
+    }
+
   }
 }

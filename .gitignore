@@ -7,3 +7,4 @@ backend/app/mediafiles
 *.pyc
 frontend/app/.angular
 backend/app/db.sqlite3
+frontend/app/.vscode

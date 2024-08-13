@@ -4,8 +4,9 @@
 @import 'primeicons/primeicons.css';
 @import 'primeng/resources/themes/lara-light-blue/theme.css';
 @import 'primeng/resources/primeng.min.css';
+
 :root {
-  --mat-icon-color: #6ea5c6;
+  /* --mat-icon-color: #6ea5c6; */
 }
 
 html,
