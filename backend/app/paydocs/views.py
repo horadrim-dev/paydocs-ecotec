@@ -28,4 +28,4 @@ class PaymentDocumentCityListViewSet(viewsets.mixins.ListModelMixin,
     queryset = PaymentDocument.objects.values('gorod').distinct()
     serializer_class = serializers.PaymentDocumentCityListSerializer
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
