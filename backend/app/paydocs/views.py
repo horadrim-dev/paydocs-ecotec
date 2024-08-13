@@ -15,7 +15,7 @@ class PaymentDocumentViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = PaymentDocument.objects.all()
     serializer_class = serializers.PaymentDocumentSerializer
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
     pagination_class = ApiPagination
     filterset_class = PaymentDocumentFilter
 

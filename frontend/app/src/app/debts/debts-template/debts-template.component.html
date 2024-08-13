@@ -61,7 +61,7 @@
             <!-- </table>
             <table *ngFor="let items of debtsChunked" class="debts-table"> -->
                 <tr *ngFor="let item of debts">
-                    <td class="text-start">{{ item.period }}</td>
+                    <td class="text-start">{{ formatMonthYear(item.period) }}</td>
                     <td>{{ item.nacis }}</td>
                     <td>{{ item.korekt }}</td>
                     <td>{{ item.pen }}</td>

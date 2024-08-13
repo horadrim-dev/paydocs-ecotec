@@ -18,6 +18,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { PaydocsComponent } from './paydocs.component';
 import { PaydocsRoutingModule } from './paydocs-routing.module';
 import { PaydocTemplateComponent } from './paydoc-template/paydoc-template.component';
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { PaydocTemplateComponent } from './paydoc-template/paydoc-template.compo
     QRCodeModule,
     DropdownModule,
     FormsModule,
-    MultiSelectModule
+    MultiSelectModule,
+    CalendarModule,
   ]
 })
 export class PaydocsModule { }

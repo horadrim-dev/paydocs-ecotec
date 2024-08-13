@@ -6,7 +6,8 @@ class PaymentDocumentFilter(filters.FilterSet):
     fio = filters.CharFilter(lookup_expr='icontains')
     ad = filters.CharFilter(lookup_expr='icontains')
     gorod = filters.CharFilter(lookup_expr='exact')
+    period = filters.CharFilter(lookup_expr='exact')
 
     class Meta:
         model = PaymentDocument
-        fields = ['ls', 'fio', 'ad', 'gorod']
+        fields = ['ls', 'fio', 'ad', 'gorod', 'period']

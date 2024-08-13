@@ -7,6 +7,9 @@ import { PaydocTemplateComponent } from './paydoc-template/paydoc-template.compo
 import { City } from '../shared/models/city.model';
 import { DropdownChangeEvent } from 'primeng/dropdown';
 import { PaydocService } from './paydoc.service';
+import { CalendarMonthChangeEvent } from 'primeng/calendar';
+
+interface MonthSet { [key:string]:any }
 
 @Component({
   selector: 'app-paydocs',
@@ -23,9 +26,17 @@ export class PaydocsComponent implements OnInit {
   page_size: number = 7;
   total: number = 0;
   filter_params: FilterMetadata = {};
+  period_model?: Date ;
+  today: Date ;
+
+  months: MonthSet = {
+    "01": "Январь", "02": "Февраль", "03": "Март", "04": "Апрель", "05": "Май", "06": "Июнь", 
+    "07": "Июль", "08": "Август", "09": "Сентябрь", "10": "Октябрь", "11": "Ноябрь", "12": "Декабрь",
+  }
 
   filters: { [key in keyof PaydocFilter]: FilterMetadata } = {
     gorod: { value: "", matchMode: "equals" },
+    period: { value: "", matchMode: "equals" },
     ls: { value: "", matchMode: "contains" },
     fio: { value: "", matchMode: "contains" },
     ad: { value: "", matchMode: "contains" },
@@ -37,10 +48,18 @@ export class PaydocsComponent implements OnInit {
     private messageService: MessageService,
     private dialogService: DialogService,
   ){
+    this.today = new Date();
+
     let storedCity = localStorage.getItem('paydocs-city-name')
     if (storedCity) {
       this.filters.gorod.value = storedCity;
       this.currentCity = { name: storedCity } as City;
+    }
+
+    let storedPeriod = localStorage.getItem('paydocs-period')
+    if (storedPeriod) {
+      this.period_model = new Date(storedPeriod);
+      this.setPeriodFilterWith(this.period_model);
     }
 
     this.paydocService.getCities()
@@ -62,6 +81,27 @@ export class PaydocsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fetchData();
+  }
+
+  formatMonthYear(date_string: string){
+    let month: string = this.months[date_string.slice(4)];
+    let year: string = date_string.slice(0,4);
+    return month + " " + year;
+  }
+
+  setPeriodFilterWith(date:Date) : void {
+    this.filters.period.value = date.getFullYear() + "" + date.toLocaleDateString("ru-RU", {month: "2-digit"});
+  }
+
+  periodChanged(date: Date){
+    if (date){
+      this.setPeriodFilterWith(date);
+      localStorage.setItem('paydocs-period', date.toString());
+    } else {
+      this.filters.period.value = "";
+      localStorage.setItem('paydocs-period', "");
+    }
     this.fetchData();
   }
 

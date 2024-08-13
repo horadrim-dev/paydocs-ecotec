@@ -47,6 +47,7 @@ export interface Paydoc {
 
 export interface  PaydocFilter {
     gorod: string | null,
+    period: string | null,
     ls: string | null,
     fio: string | null,
     ad: string | null,

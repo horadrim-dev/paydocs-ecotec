@@ -20,6 +20,7 @@
     <ng-template pTemplate="header">
         <tr>
             <th>Город</th>
+            <th>Период</th>
             <th>Лицевой счет</th>
             <th>ФИО</th>
             <th>Адрес</th>
@@ -45,6 +46,17 @@
                 </p-columnFilter>
             </th>
             <th>
+                <!-- <p-columnFilter type="date" field="period" [showMenu]="false" > </p-columnFilter> -->
+                <p-calendar 
+                    [(ngModel)]="period_model" 
+                    view="month" 
+                    dateFormat="MM yy" 
+                    [showClear]="true"
+                    (ngModelChange)="periodChanged($event)"
+                    [readonlyInput]="true"
+                />
+            </th>
+            <th>
                 <p-columnFilter type="text" field="ls" [showMenu]="false" > </p-columnFilter>
             </th>
             <th>
@@ -59,6 +71,7 @@
     <ng-template pTemplate="body" let-doc>
         <tr>
             <td>{{ doc.gorod }}</td>
+            <td>{{ formatMonthYear(doc.period) }}</td>
             <td>{{ doc.ls }}</td>
             <td>{{ doc.fio }}</td>
             <td>{{ doc.ad }}</td>

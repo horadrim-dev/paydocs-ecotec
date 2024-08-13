@@ -6,6 +6,8 @@ import { MessageService } from 'primeng/api';
 import { City } from '../../shared/models/city.model';
 import moment from 'moment';
 
+interface MonthSet { [key:string]:any }
+
 @Component({
   selector: 'app-debts-template',
   templateUrl: './debts-template.component.html',
@@ -14,6 +16,11 @@ import moment from 'moment';
 export class DebtsTemplateComponent {
 
   debtor: Debtor;
+  months: MonthSet = {
+    "01": "Январь", "02": "Февраль", "03": "Март", "04": "Апрель", "05": "Май", "06": "Июнь", 
+    "07": "Июль", "08": "Август", "09": "Сентябрь", "10": "Октябрь", "11": "Ноябрь", "12": "Декабрь",
+  }
+
   debts: Debt[] = [] ;
   summ_debt: number = 0;
   loading: Boolean = true;
@@ -59,6 +66,12 @@ export class DebtsTemplateComponent {
             this.dialogRef.close();
           }
         });
+  }
+
+  formatMonthYear(date_string: string){
+    let month: string = this.months[date_string.slice(5,7)];
+    let year: string = date_string.slice(0,4);
+    return month + " " + year;
   }
 
   printComponent(cmpName:string) {
