@@ -30,12 +30,12 @@ export class SidebarMenuComponent implements OnInit{
         items: [
           {
             label: 'Карточки должника',
-            icon: 'group',
+            icon: 'contact_page',
             command:(click)=>{this.router.navigate(['/debts']);}
           },
           {
             label: 'Платежные документы',
-            icon: 'group',
+            icon: 'article',
             command:(click)=>{this.router.navigate(['/paydocs']);}
           },
         ]
