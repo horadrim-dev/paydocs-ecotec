@@ -5,16 +5,16 @@ from .models import *
 class DebtorProkopyevskAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(DebtorArtyshta)
-class DebtorArtyshtaAdmin(admin.ModelAdmin):
+@admin.register(DebtorMyski)
+class DebtorMyskiAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(DebtorKrasnobrod)
 class DebtorKrasnobrodAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(DebtorDubrovo)
-class DebtorDubrovoAdmin(admin.ModelAdmin):
+@admin.register(DebtorKiselevsk)
+class DebtorKiselevskAdmin(admin.ModelAdmin):
     pass
 
 
@@ -22,14 +22,14 @@ class DebtorDubrovoAdmin(admin.ModelAdmin):
 class DebtProkopyevskAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(DebtArtyshta)
-class DebtArtyshtaAdmin(admin.ModelAdmin):
+@admin.register(DebtMyski)
+class DebtMyskiAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(DebtKrasnobrod)
 class DebtKrasnobrodAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(DebtDubrovo)
-class DebtDubrovoAdmin(admin.ModelAdmin):
+@admin.register(DebtKiselevsk)
+class DebtKiselevskAdmin(admin.ModelAdmin):
     pass

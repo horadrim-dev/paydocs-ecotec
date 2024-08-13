@@ -7,19 +7,19 @@ CITIES_PARAMS = {
         "debtor_serializer": serializers.DebtorProkopyevskSerializer,
         "debt_serializer": serializers.DebtProkopyevskSerializer,
     },
-    "artyshta": { 
-        "queryset": DebtorArtyshta.objects,
-        "debtor_serializer": serializers.DebtorArtyshtaSerializer,
-        "debt_serializer": serializers.DebtArtyshtaSerializer,
+    "myski": { 
+        "queryset": DebtorMyski.objects,
+        "debtor_serializer": serializers.DebtorMyskiSerializer,
+        "debt_serializer": serializers.DebtMyskiSerializer,
     },
     "krasnobrod": { 
         "queryset": DebtorKrasnobrod.objects,
         "debtor_serializer": serializers.DebtorKrasnobrodSerializer,
         "debt_serializer": serializers.DebtKrasnobrodSerializer,
     },
-    "dubrovo": { 
-        "queryset": DebtorDubrovo.objects,
-        "debtor_serializer": serializers.DebtorDubrovoSerializer,
-        "debt_serializer": serializers.DebtDubrovoSerializer,
+    "kiselevsk": { 
+        "queryset": DebtorKiselevsk.objects,
+        "debtor_serializer": serializers.DebtorKiselevskSerializer,
+        "debt_serializer": serializers.DebtKiselevskSerializer,
     },
 }

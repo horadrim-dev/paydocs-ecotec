@@ -47,9 +47,9 @@ export class DebtsComponent implements OnInit {
   ){
     this.cities = [
       {name:"Прокопьевск", value:"prk"}, 
-      {name:"Артышта", value:"artyshta"}, 
+      {name:"Мыски", value:"myski"}, 
       {name: "Краснобродский", value:"krasnobrod"}, 
-      {name: "Дуброво", value: "dubrovo"}
+      {name: "Киселевск", value: "kiselevsk"}
     ];
     let storedCity = localStorage.getItem('debts-city')
     if (storedCity) {

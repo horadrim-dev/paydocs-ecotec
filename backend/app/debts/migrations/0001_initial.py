@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='DebtorArtyshta',
+            name='DebtorMyski',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('kv', models.CharField(blank=True, max_length=512, null=True, verbose_name='KV')),
@@ -25,13 +25,13 @@ class Migration(migrations.Migration):
                 ('pr', models.CharField(blank=True, max_length=512, null=True, verbose_name='PR')),
             ],
             options={
-                'verbose_name_plural': 'должники (Артышта)',
-                'db_table': 'ls_artyshta',
+                'verbose_name_plural': 'должники (Мыски)',
+                'db_table': 'ls_myski',
                 'ordering': ['id'],
             },
         ),
         migrations.CreateModel(
-            name='DebtorDubrovo',
+            name='DebtorKiselevsk',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('kv', models.CharField(blank=True, max_length=512, null=True, verbose_name='KV')),
@@ -43,8 +43,8 @@ class Migration(migrations.Migration):
                 ('pr', models.CharField(blank=True, max_length=512, null=True, verbose_name='PR')),
             ],
             options={
-                'verbose_name_plural': 'должники (Дуброво)',
-                'db_table': 'ls_dubrovo',
+                'verbose_name_plural': 'должники (Киселевск)',
+                'db_table': 'ls_kiselevsk',
                 'ordering': ['id'],
             },
         ),
@@ -121,10 +121,10 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='DebtDubrovo',
+            name='DebtKiselevsk',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ls', models.ForeignKey(db_column='ls', on_delete=django.db.models.deletion.CASCADE, related_name='debt_set', to='debts.debtordubrovo', to_field='ls')),
+                ('ls', models.ForeignKey(db_column='ls', on_delete=django.db.models.deletion.CASCADE, related_name='debt_set', to='debts.debtorkiselevsk', to_field='ls')),
                 ('period', models.DateField(verbose_name='Период')),
                 ('nacis', models.FloatField(blank=True, default=0, verbose_name='Начисление')),
                 ('korekt', models.FloatField(blank=True, default=0, verbose_name='Korekt')),
@@ -134,15 +134,15 @@ class Migration(migrations.Migration):
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
-                'verbose_name_plural': 'задолженности (Дуброво)',
-                'db_table': 'kartdolg_dubrovo',
+                'verbose_name_plural': 'задолженности (Киселевск)',
+                'db_table': 'kartdolg_kiselevsk',
             },
         ),
         migrations.CreateModel(
-            name='DebtArtyshta',
+            name='DebtMyski',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('ls', models.ForeignKey(db_column='ls', on_delete=django.db.models.deletion.CASCADE, related_name='debt_set', to='debts.debtorartyshta', to_field='ls')),
+                ('ls', models.ForeignKey(db_column='ls', on_delete=django.db.models.deletion.CASCADE, related_name='debt_set', to='debts.debtormyski', to_field='ls')),
                 ('period', models.DateField(verbose_name='Период')),
                 ('nacis', models.FloatField(blank=True, default=0, verbose_name='Начисление')),
                 ('korekt', models.FloatField(blank=True, default=0, verbose_name='Korekt')),
@@ -152,8 +152,8 @@ class Migration(migrations.Migration):
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
-                'verbose_name_plural': 'задолженности (Артышта)',
-                'db_table': 'kartdolg_artyshta',
+                'verbose_name_plural': 'задолженности (Мыски)',
+                'db_table': 'kartdolg_myski',
             },
         ),
     ]

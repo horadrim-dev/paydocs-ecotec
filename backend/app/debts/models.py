@@ -19,11 +19,11 @@ class DebtorBase(models.Model):
         abstract = True
         verbose_name = "должник"
 
-class DebtorArtyshta(DebtorBase):
+class DebtorMyski(DebtorBase):
     class Meta:
-        db_table = "ls_artyshta"
+        db_table = "ls_myski"
         ordering = ['id']
-        verbose_name_plural = "должники (Артышта)"
+        verbose_name_plural = "должники (Мыски)"
 
 class DebtorProkopyevsk(DebtorBase):
     class Meta:
@@ -37,11 +37,11 @@ class DebtorKrasnobrod(DebtorBase):
         ordering = ['id']
         verbose_name_plural = "должники (Краснобродский)"
 
-class DebtorDubrovo(DebtorBase):
+class DebtorKiselevsk(DebtorBase):
     class Meta:
-        db_table = "ls_dubrovo"
+        db_table = "ls_kiselevsk"
         ordering = ['id']
-        verbose_name_plural = "должники (Дуброво)"
+        verbose_name_plural = "должники (Киселевск)"
 
 
 
@@ -67,13 +67,13 @@ class DebtBase(models.Model):
         verbose_name_plural = "задолженности"
 
 
-class DebtArtyshta(DebtBase):
-    ls = models.ForeignKey(DebtorArtyshta, name="ls", related_name='debt_set',
+class DebtMyski(DebtBase):
+    ls = models.ForeignKey(DebtorMyski, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
     class Meta:
-        db_table = "kartdolg_artyshta"
-        verbose_name_plural = "задолженности (Артышта)"
+        db_table = "kartdolg_myski"
+        verbose_name_plural = "задолженности (Мыски)"
 
 class DebtProkopyevsk(DebtBase):
     ls = models.ForeignKey(DebtorProkopyevsk, name="ls", related_name='debt_set',
@@ -92,10 +92,10 @@ class DebtKrasnobrod(DebtBase):
         verbose_name_plural = "задолженности (Краснобродский)"
 
 
-class DebtDubrovo(DebtBase):
-    ls = models.ForeignKey(DebtorDubrovo, name="ls", related_name='debt_set',
+class DebtKiselevsk(DebtBase):
+    ls = models.ForeignKey(DebtorKiselevsk, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
     class Meta:
-        db_table = "kartdolg_dubrovo"
-        verbose_name_plural = "задолженности (Дуброво)"
+        db_table = "kartdolg_kiselevsk"
+        verbose_name_plural = "задолженности (Киселевск)"

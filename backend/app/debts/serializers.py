@@ -8,10 +8,10 @@ class DebtorProkopyevskSerializer(serializers.ModelSerializer):
         model = DebtorProkopyevsk
         fields = '__all__'
 
-class DebtorArtyshtaSerializer(serializers.ModelSerializer):
+class DebtorMyskiSerializer(serializers.ModelSerializer):
     """Debtor model serializer"""
     class Meta:
-        model = DebtorArtyshta
+        model = DebtorMyski
         fields = '__all__'
 
 class DebtorKrasnobrodSerializer(serializers.ModelSerializer):
@@ -20,10 +20,10 @@ class DebtorKrasnobrodSerializer(serializers.ModelSerializer):
         model = DebtorKrasnobrod
         fields = '__all__'
 
-class DebtorDubrovoSerializer(serializers.ModelSerializer):
+class DebtorKiselevskSerializer(serializers.ModelSerializer):
     """Debtor model serializer"""
     class Meta:
-        model = DebtorDubrovo
+        model = DebtorKiselevsk
         fields = '__all__'
 
 
@@ -34,11 +34,11 @@ class DebtProkopyevskSerializer(serializers.ModelSerializer):
         model = DebtProkopyevsk
         fields = '__all__'
 
-class DebtArtyshtaSerializer(serializers.ModelSerializer):
+class DebtMyskiSerializer(serializers.ModelSerializer):
     """Debt list serializer"""
     # name = serializers.CharField(source="gorod")
     class Meta:
-        model = DebtArtyshta
+        model = DebtMyski
         fields = '__all__'
 
 class DebtKrasnobrodSerializer(serializers.ModelSerializer):
@@ -48,9 +48,9 @@ class DebtKrasnobrodSerializer(serializers.ModelSerializer):
         model = DebtKrasnobrod
         fields = '__all__'
 
-class DebtDubrovoSerializer(serializers.ModelSerializer):
+class DebtKiselevskSerializer(serializers.ModelSerializer):
     """Debt list serializer"""
     # name = serializers.CharField(source="gorod")
     class Meta:
-        model = DebtDubrovo
+        model = DebtKiselevsk
         fields = '__all__'
