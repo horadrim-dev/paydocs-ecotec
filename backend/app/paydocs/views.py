@@ -25,7 +25,7 @@ class PaymentDocumentCityListViewSet(viewsets.mixins.ListModelMixin,
     """
     Provides list of cities from PaymentDocument model
     """
-    queryset = PaymentDocument.objects.values('gorod').distinct()
+    queryset = PaymentDocument.objects.order_by().values('gorod').distinct()
     serializer_class = serializers.PaymentDocumentCityListSerializer
     authentication_classes = (JWTAuthentication,)
     # permission_classes = (IsAuthenticated, )
