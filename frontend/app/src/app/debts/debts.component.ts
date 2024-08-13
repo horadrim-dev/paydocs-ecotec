@@ -23,7 +23,7 @@ export class DebtsComponent implements OnInit {
   currentCity: City;
   loading: Boolean = true;
   page: number = 1;
-  page_size: number = 1;
+  page_size: number = 10;
   total: number = 0;
   filter_params: FilterMetadata = {};
   ref_period: DynamicDialogRef | undefined;
