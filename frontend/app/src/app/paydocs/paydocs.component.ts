@@ -20,7 +20,7 @@ export class PaydocsComponent implements OnInit {
   currentCity?: City;
   loading: Boolean = true;
   page: number = 1;
-  page_size: number = 10;
+  page_size: number = 7;
   total: number = 0;
   filter_params: FilterMetadata = {};
 
