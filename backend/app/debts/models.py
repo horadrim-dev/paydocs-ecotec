@@ -71,35 +71,83 @@ class DebtArtyshta(DebtBase):
     ls = models.ForeignKey(DebtorArtyshta, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
+    period = models.DateField("Период")
+    nacis = models.FloatField("Начисление", blank=True, default=0)
+    korekt = models.FloatField("Korekt", blank=True, default=0)
+    pen = models.FloatField("Пеня", blank=True, default=0)
+    dolgsud = models.FloatField("Судебный долг", blank=True, default=0)
+    opl = models.FloatField("Судебный долг", blank=True, default=0)
+    sitog = models.FloatField("Сумма итого", blank=True, default=0)
     
+    def __str__(self):
+        return "лс {}, период {}, сумма {}".format(self.ls, self.period, self.sitog)
+
     class Meta:
+        ordering = ['-period']
         db_table = "kartdolg_artyshta"
+        verbose_name = "задолженность"
         verbose_name_plural = "задолженности (Артышта)"
 
-class DebtProkopyevsk(DebtBase):
+class DebtProkopyevsk(models.Model):
     ls = models.ForeignKey(DebtorProkopyevsk, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
+    period = models.DateField("Период")
+    nacis = models.FloatField("Начисление", blank=True, default=0)
+    korekt = models.FloatField("Korekt", blank=True, default=0)
+    pen = models.FloatField("Пеня", blank=True, default=0)
+    dolgsud = models.FloatField("Судебный долг", blank=True, default=0)
+    opl = models.FloatField("Судебный долг", blank=True, default=0)
+    sitog = models.FloatField("Сумма итого", blank=True, default=0)
+    
+    def __str__(self):
+        return "лс {}, период {}, сумма {}".format(self.ls, self.period, self.sitog)
     
     class Meta:
+        ordering = ['-period']
         db_table = "kartdolg_prk"
+        verbose_name = "задолженность"
         verbose_name_plural = "задолженности (Прокопьевск)"
 
-class DebtKrasnobrod(DebtBase):
+class DebtKrasnobrod(models.Model):
     ls = models.ForeignKey(DebtorKrasnobrod, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
+    period = models.DateField("Период")
+    nacis = models.FloatField("Начисление", blank=True, default=0)
+    korekt = models.FloatField("Korekt", blank=True, default=0)
+    pen = models.FloatField("Пеня", blank=True, default=0)
+    dolgsud = models.FloatField("Судебный долг", blank=True, default=0)
+    opl = models.FloatField("Судебный долг", blank=True, default=0)
+    sitog = models.FloatField("Сумма итого", blank=True, default=0)
+    
+    def __str__(self):
+        return "лс {}, период {}, сумма {}".format(self.ls, self.period, self.sitog)
     
     class Meta:
+        ordering = ['-period']
         db_table = "kartdolg_krasnobrod"
+        verbose_name = "задолженность"
         verbose_name_plural = "задолженности (Краснобродский)"
 
 
-class DebtDubrovo(DebtBase):
+class DebtDubrovo(models.Model):
     ls = models.ForeignKey(DebtorDubrovo, name="ls", related_name='debt_set',
                            to_field="ls", db_column="ls", 
                            on_delete=models.CASCADE)
+    period = models.DateField("Период")
+    nacis = models.FloatField("Начисление", blank=True, default=0)
+    korekt = models.FloatField("Korekt", blank=True, default=0)
+    pen = models.FloatField("Пеня", blank=True, default=0)
+    dolgsud = models.FloatField("Судебный долг", blank=True, default=0)
+    opl = models.FloatField("Судебный долг", blank=True, default=0)
+    sitog = models.FloatField("Сумма итого", blank=True, default=0)
+    
+    def __str__(self):
+        return "лс {}, период {}, сумма {}".format(self.ls, self.period, self.sitog)
     
     class Meta:
+        ordering = ['-period']
         db_table = "kartdolg_dubrovo"
+        verbose_name = "задолженность"
         verbose_name_plural = "задолженности (Дуброво)"

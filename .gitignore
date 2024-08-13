@@ -6,3 +6,4 @@ backend/app/staticfiles
 backend/app/mediafiles
 *.pyc
 frontend/app/.angular
+backend/app/db.sqlite3

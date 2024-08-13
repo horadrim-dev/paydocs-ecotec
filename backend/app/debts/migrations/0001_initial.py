@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'должники (Артышта)',
                 'db_table': 'ls_artyshta',
                 'ordering': ['id'],
+                'ordering': ['id'],
             },
         ),
         migrations.CreateModel(
@@ -45,6 +46,7 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name_plural': 'должники (Дуброво)',
                 'db_table': 'ls_dubrovo',
+                'ordering': ['id'],
                 'ordering': ['id'],
             },
         ),
@@ -64,6 +66,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'должники (Краснобродский)',
                 'db_table': 'ls_krasnobrod',
                 'ordering': ['id'],
+                'ordering': ['id'],
             },
         ),
         migrations.CreateModel(
@@ -82,6 +85,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'должники (Прокопьевск)',
                 'db_table': 'ls_prk',
                 'ordering': ['id'],
+                'ordering': ['id'],
             },
         ),
         migrations.CreateModel(
@@ -95,11 +99,14 @@ class Migration(migrations.Migration):
                 ('pen', models.FloatField(blank=True, default=0, verbose_name='Пеня')),
                 ('dolgsud', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
+                ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
+                'verbose_name': 'задолженность',
                 'verbose_name_plural': 'задолженности (Прокопьевск)',
                 'db_table': 'kartdolg_prk',
+                'ordering': ['-period'],
             },
         ),
         migrations.CreateModel(
@@ -113,11 +120,14 @@ class Migration(migrations.Migration):
                 ('pen', models.FloatField(blank=True, default=0, verbose_name='Пеня')),
                 ('dolgsud', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
+                ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
+                'verbose_name': 'задолженность',
                 'verbose_name_plural': 'задолженности (Краснобродский)',
                 'db_table': 'kartdolg_krasnobrod',
+                'ordering': ['-period'],
             },
         ),
         migrations.CreateModel(
@@ -131,11 +141,14 @@ class Migration(migrations.Migration):
                 ('pen', models.FloatField(blank=True, default=0, verbose_name='Пеня')),
                 ('dolgsud', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
+                ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
+                'verbose_name': 'задолженность',
                 'verbose_name_plural': 'задолженности (Дуброво)',
                 'db_table': 'kartdolg_dubrovo',
+                'ordering': ['-period'],
             },
         ),
         migrations.CreateModel(
@@ -149,11 +162,14 @@ class Migration(migrations.Migration):
                 ('pen', models.FloatField(blank=True, default=0, verbose_name='Пеня')),
                 ('dolgsud', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
+                ('opl', models.FloatField(blank=True, default=0, verbose_name='Судебный долг')),
                 ('sitog', models.FloatField(blank=True, default=0, verbose_name='Сумма итого')),
             ],
             options={
+                'verbose_name': 'задолженность',
                 'verbose_name_plural': 'задолженности (Артышта)',
                 'db_table': 'kartdolg_artyshta',
+                'ordering': ['-period'],
             },
         ),
     ]
