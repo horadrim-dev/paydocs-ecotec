@@ -20,6 +20,7 @@ export interface Debt {
     opl: number | null,
     sitog: number | null,
     ls: string,
+    ish_saldo: number | null,
 }
 
 export interface  DebtorFilter {

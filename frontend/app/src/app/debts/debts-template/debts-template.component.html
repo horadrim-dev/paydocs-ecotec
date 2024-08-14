@@ -58,16 +58,23 @@
                 </tr>
                 </thead>
             <tbody>
-            <!-- </table>
-            <table *ngFor="let items of debtsChunked" class="debts-table"> -->
                 <tr *ngFor="let item of debts">
                     <td class="text-start">{{ formatMonthYear(item.period) }}</td>
-                    <td>{{ item.nacis }}</td>
-                    <td>{{ item.korekt }}</td>
-                    <td>{{ item.pen }}</td>
-                    <td>{{ item.dolgsud }}</td>
-                    <td>{{ item.opl }}</td>
-                    <td>{{ item.sitog }}</td>
+                    <td>{{ formatNum(item.nacis) }}</td>
+                    <td>{{ formatNum(item.korekt) }}</td>
+                    <td>{{ formatNum(item.pen) }}</td>
+                    <td>{{ formatNum(item.dolgsud) }}</td>
+                    <td>{{ formatNum(item.opl) }}</td>
+                    <td>{{ formatNum(item.ish_saldo) }}</td>
+                </tr>
+                <tr>
+                    <td class="text-start">ИТОГО</td>
+                    <td>{{ formatNum(itogo.nacis) }}</td>
+                    <td>{{ formatNum(itogo.korekt) }}</td>
+                    <td>{{ formatNum(itogo.pen) }}</td>
+                    <td>{{ formatNum(itogo.dolgsud) }}</td>
+                    <td>{{ formatNum(itogo.opl) }}</td>
+                    <td>{{ formatNum(itogo.ish_saldo) }}</td>
                 </tr>
             </tbody>
             <tfoot class="footer-repeat">
@@ -86,7 +93,7 @@
 
         </div>
         <div class="underlined  mt-3">
-            <span class="summarized fw-bold">Задолженность на 01.07.2024г.: {{ summ_debt }}</span>
+            <span class="summarized fw-bold">Задолженность на 01.07.2024г.: {{ formatNum(itogo.ish_saldo) }}</span>
         </div>
 
         <div class="row justify-content-center">

@@ -27,6 +27,15 @@ export class DebtsTemplateComponent {
   filter: DebtFilter;
   city: City;
   today: string;
+  itogo = {
+    'nacis' : 0,
+    'korekt': 0,
+    'pen': 0,
+    'dolgsud': 0,
+    'opl': 0,
+    'sitog': 0,
+    'ish_saldo': 0
+  }
 
   constructor(
     private config: DynamicDialogConfig,
@@ -50,11 +59,7 @@ export class DebtsTemplateComponent {
         .subscribe({
           next: (res) => {
             this.debts = res as Debt[];
-
-            let last_debt = this.debts.at(-1);
-            if (last_debt){
-              this.summ_debt = last_debt.sitog || 0;
-            }
+            this.calcItogo();
             this.loading = false; 
           },
           error: err => {
@@ -66,6 +71,34 @@ export class DebtsTemplateComponent {
             this.dialogRef.close();
           }
         });
+  }
+
+  // calcSaldo(){
+  //   this.debts.forEach(debt => {
+  //     debt.ish_saldo = 
+  //   });
+  // }
+  calcItogo() {
+    this.debts.forEach(debt => {
+      this.itogo.nacis += debt.nacis || 0;
+      this.itogo.korekt += debt.korekt || 0;
+      this.itogo.opl += debt.opl|| 0
+      this.itogo.pen += debt.pen || 0;
+      this.itogo.dolgsud += debt.dolgsud|| 0;
+      this.itogo.ish_saldo += debt.sitog || 0;
+
+      debt.ish_saldo = this.itogo.ish_saldo || 0;
+    });
+
+    // let last_debt = this.debts.at(-1);
+    // if (last_debt){
+      this.summ_debt = this.itogo.ish_saldo;
+    // }
+  }
+
+  formatNum(value:number | null) {
+    if (value === null) value = 0;
+    return (Math.round(value * 100) / 100).toFixed(2);
   }
 
   formatMonthYear(date_string: string){
