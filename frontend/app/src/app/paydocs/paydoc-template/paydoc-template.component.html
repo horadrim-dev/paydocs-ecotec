@@ -93,12 +93,12 @@
                 <td>{{ formatNum(data.opl_tko) }}</td>
                 <td>чел.</td>
                 <td>{{ data.pr }}</td>
-                <td>{{ formatNum(data.vh_saldo) }}</td>
-                <td>{{ formatNum(data.nacis) }}</td>
-                <td>{{ formatNum(data.kor) }}</td>
-                <td>{{ formatNum(data.itog) }}</td>
-                <td>{{ formatNum(data.opl) }}</td>
-                <td>{{ formatNum(data.ish_saldo) }}</td>
+                <td>{{ formatNum(data.vh_saldo + data.vh_saldo_s) }}</td>
+                <td>{{ formatNum(data.nacis + data.nacis_s) }}</td>
+                <td>{{ formatNum(data.kor + data.kor_s) }}</td>
+                <td>{{ formatNum(data.nacis + data.nacis_s + data.kor + data.kor_s) }}</td>
+                <td>{{ formatNum(data.opl + data.opl_s) }}</td>
+                <td>{{ formatNum(data.ish_saldo + data.ish_saldo_s) }}</td>
             </tr>
             <tr>
                 <td class="text-start">В т.ч. долг по суду</td>
@@ -108,7 +108,7 @@
                 <td>{{ formatNum(data.vh_saldo_s) }}</td>
                 <td>{{ formatNum(data.nacis_s) }}</td>
                 <td>{{ formatNum(data.kor_s) }}</td>
-                <td>0,00</td>
+                <td>{{ formatNum(data.nacis_s + data.kor_s) }}</td>
                 <td>{{ formatNum(data.opl_s) }}</td>
                 <td>{{ formatNum(data.ish_saldo_s) }}</td>
             </tr>
@@ -120,7 +120,7 @@
                 <td>{{ formatNum(data.vh_saldo_pen) }}</td>
                 <td>{{ formatNum(data.pen) }}</td>
                 <td>{{ formatNum(data.kor_pen) }}</td>
-                <td>0,00</td>
+                <td>{{ formatNum(data.pen + data.kor_pen) }}</td>
                 <td>{{ formatNum(data.opl_pen) }}</td>
                 <td>{{ formatNum(data.ish_saldo_pen) }}</td>
             </tr>
@@ -129,17 +129,17 @@
                 <td class="no-border"></td>
                 <td class="no-border"></td>
                 <td class="no-border text-end">Итого: </td>
-                <td>{{ formatNum(data.vh_saldo) }}</td>
-                <td>{{ formatNum(data.nacis) }}</td>
-                <td>{{ formatNum(data.kor) }}</td>
-                <td>{{ formatNum(data.itog) }}</td>
-                <td>{{ formatNum(data.opl) }}</td>
-                <td>{{ formatNum(data.ish_saldo) }}</td>
+                <td>{{ formatNum(data.vh_saldo + data.vh_saldo_s + data.vh_saldo_pen) }}</td>
+                <td>{{ formatNum(data.nacis + data.nacis_s + data.pen) }}</td>
+                <td>{{ formatNum(data.kor + data.kor_s + data.kor_pen) }}</td>
+                <td>{{ formatNum(data.pen + data.kor_pen + data.nacis + data.nacis_s + data.kor + data.kor_s) }}</td>
+                <td>{{ formatNum(data.opl + data.opl_pen + data.opl_s) }}</td>
+                <td>{{ formatNum(data.itog_vse) }}</td>
             </tr>
         </table>
 
         <div class="mt-3 fs-5">
-            <div class="text-decoration-underline">Итого к оплате {{ data.ish_saldo }} руб., в том числе</div>
+            <div class="text-decoration-underline">Итого к оплате {{ data.itog_vse }} руб., в том числе</div>
             <div class="text-decoration-underline">пеня {{ data.ish_saldo_pen }} руб.; долг по суду {{ data.ish_saldo_s }} руб.</div>
         </div>
 
@@ -160,6 +160,9 @@
                     - через банкоматы ВТБ и ВТБ-онлайн (БЕЗ КОМИССИИ).<br><br>
                 </div>
             </div>
+        </div>
+        <div class="soob mt-2">
+            {{ data.soob }}
         </div>
     </div>
 </div>
