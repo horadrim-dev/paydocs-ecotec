@@ -58,7 +58,7 @@
         display: none;
     }
     .no-print {
-        display: none;
+        display: none !important;
     }
     @page {
         size: auto;

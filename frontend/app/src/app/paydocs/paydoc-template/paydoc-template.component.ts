@@ -38,20 +38,20 @@ export class PaydocTemplateComponent implements OnInit {
   }
 
   printComponent(cmpName:string) {
-    // window.print()
+    window.print()
 
-      let printContents = document.getElementById(cmpName) as HTMLElement;
+      // let printContents = document.getElementById(cmpName) as HTMLElement;
       
-      html2canvas(printContents).then(async function(canvas:any) {
-        let win = window.open();
-        await win?.document.write(" \
-          <style> \
-          @media print { @page { size: auto; margin: 0mm; }  html { background-color: #FFFFFF; margin: 0px; } body { margin: 10mm; }} \
-          </style> \
-          ");
-        await win?.document.write("<br><img src='"+canvas.toDataURL()+"'/>");
-        win?.print();
-        win?.close();
-      });
+      // html2canvas(printContents).then(async function(canvas:any) {
+      //   let win = window.open();
+      //   await win?.document.write(" \
+      //     <style> \
+      //     @media print { @page { size: auto; margin: 0mm; }  html { background-color: #FFFFFF; margin: 0px; } body { margin: 10mm; }} \
+      //     </style> \
+      //     ");
+      //   await win?.document.write("<br><img src='"+canvas.toDataURL()+"'/>");
+      //   win?.print();
+      //   win?.close();
+      // });
   }
 }
