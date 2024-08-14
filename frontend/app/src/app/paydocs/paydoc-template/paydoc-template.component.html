@@ -69,7 +69,11 @@
                 <div>{{ data.index }}</div>
                 <div>{{ data.gorod }}</div>
                 <div>{{ data.rayon }}</div>
-                <div class="mt-4">{{ data.ulica }}, д. {{ data.dom }}, кв. {{ data.kv }}</div>
+                <div class="mt-4">
+                    {{ data.ulica }}
+                    <span *ngIf="data.dom && data.dom !== '0'"> кв. {{ data.dom }}</span>
+                    <span *ngIf="data.kv && data.kv !== '0'"> кв. {{ data.kv }}</span>
+                </div>
             </div>
         </div>
 
