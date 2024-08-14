@@ -22,6 +22,8 @@ export class DebtsTemplateComponent {
   }
 
   debts: Debt[] = [] ;
+  start_period: string | undefined;
+  end_period: string | undefined;
   summ_debt: number = 0;
   loading: Boolean = true;
   filter: DebtFilter;
@@ -59,7 +61,9 @@ export class DebtsTemplateComponent {
         .subscribe({
           next: (res) => {
             this.debts = res as Debt[];
-            this.calcItogo();
+
+            this.prepareDebts();
+
             this.loading = false; 
           },
           error: err => {
@@ -73,12 +77,7 @@ export class DebtsTemplateComponent {
         });
   }
 
-  // calcSaldo(){
-  //   this.debts.forEach(debt => {
-  //     debt.ish_saldo = 
-  //   });
-  // }
-  calcItogo() {
+  prepareDebts() {
     this.debts.forEach(debt => {
       this.itogo.nacis += debt.nacis || 0;
       this.itogo.korekt += debt.korekt || 0;
@@ -90,10 +89,12 @@ export class DebtsTemplateComponent {
       debt.ish_saldo = this.itogo.ish_saldo || 0;
     });
 
-    // let last_debt = this.debts.at(-1);
-    // if (last_debt){
-      this.summ_debt = this.itogo.ish_saldo;
-    // }
+    this.summ_debt = this.itogo.ish_saldo;
+
+    let start_period = this.debts.at(0)?.period || "";
+    let end_period = this.debts.at(-1)?.period || "";
+    if (start_period) this.start_period = moment(start_period).format('DD.MM.YYYY')
+    if (end_period) this.end_period = moment(end_period).format('DD.MM.YYYY')
   }
 
   formatNum(value:number | null) {

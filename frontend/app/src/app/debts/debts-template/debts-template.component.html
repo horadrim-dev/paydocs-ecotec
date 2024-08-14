@@ -24,8 +24,8 @@
     <div class="debts-wrapper" id="print-section">
         <h4 class="text-center fw-bold mb-0">
             КАРТОЧКА ДОЛЖНИКА  
-            <span *ngIf="filter.min_period.date">
-                за период с {{ filter.min_period.text }} по {{ filter.max_period.text }}
+            <span *ngIf="start_period && end_period">
+                за период с {{ start_period }} по {{ end_period }}
             </span> 
         </h4>
         <h4 class="text-center fw-bold">по организации: "Экологические технологии" ООО</h4>
