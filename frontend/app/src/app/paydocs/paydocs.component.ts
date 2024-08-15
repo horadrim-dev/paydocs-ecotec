@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterMetadata, MessageService } from 'primeng/api';
-import { Paydoc, PaydocFilter } from './paydoc.model';
+import { Paydoc, PaydocFilter, PaydocSettings } from './paydoc.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { TableLazyLoadEvent } from 'primeng/table';
 import { PaydocTemplateComponent } from './paydoc-template/paydoc-template.component';
@@ -21,6 +21,7 @@ export class PaydocsComponent implements OnInit {
   paymentDocuments: Paydoc[] = [] ;
   cities: City[] = [];
   currentCity?: City;
+  settings?: PaydocSettings;
   loading: Boolean = true;
   page: number = 1;
   page_size: number = 7;
@@ -76,6 +77,12 @@ export class PaydocsComponent implements OnInit {
           })
           this.loading = false;
         }
+      });
+    this.paydocService.getSettings()
+      .subscribe({
+        next: (res) => {
+          this.settings = res
+        },
       });
 
   }
@@ -144,7 +151,10 @@ export class PaydocsComponent implements OnInit {
   renderDocument(obj: Paydoc){
     this.ref = this.dialogService.open(PaydocTemplateComponent, { 
       width: '800px',
-      data: obj
+      data: {
+        paydoc_data: obj,
+        settings: this.settings,
+      }
     });
   }
 }

@@ -12,7 +12,6 @@
 </div>
 
 <div class="doc-wrapper" id="print-section">
-    <!-- <style> .doc { font-family: Calibri;padding: 0 20px; background: #fff; } .doc .doc-table { width: 100%; } .doc .doc-table th { border: 1px solid #000; font-size: 12px; text-align: center; } .doc .doc-table td { text-align: center; border: 1px solid #000; font-size: 10px; } .doc .doc-table td.no-border { border-bottom: none; border-left: none; border-right: none; } .doc .annotation { border: 3px dashed #000; font-weight: bold; font-size: 13px; line-height: 18px; } </style> -->
     <div class="doc">
         <div class="row">
             <div class="col-sm-4">
@@ -21,15 +20,7 @@
             </div>
             <div class="col-sm-8 fs-6">
                 <h3 class="text-center fw-bold">ПЛАТЕЖНЫЙ ДОКУМЕНТ за {{ month }} {{ year }}г.</h3>
-                <div>РКЦ: ООО "РАСЧЕТНЫЙ ЦЕНТР"</div>
-                <div>ИНН: 4223123268</div>
-                <div>Адрес: г. Киселевск ул. Транспортная, 54, 1 этаж </div>
-                <div class="mb-3">Телефон: 8 (3846) 66 80 23</div>
-                <div>ООО «Экологические технологии»</div>
-                <div>Адрес: 654027, Кемеровская область - Кузбасс обл, Новокузнецк г, Коммунаров проезд, дом № 2 </div>
-                <div>тел.: 8-800-550-5242</div>
-                <div>электронная почта: info&#64;kuzro.ru</div>
-                <div>модуль "Обратная связь" на официальном сайте ООО «ЭкоТек» по адресу http://kuzro.ru</div>
+                <div [innerHTML]="settings.contacts_html"></div>
             </div>
         </div>
 
@@ -55,14 +46,8 @@
                 <div class="">Ф.И.О. плательщика: </div>
                 <div class="fw-bold">{{ data.fio }} </div>
             </div>
-            <div class="col border border-dark text-center">
-                <div>ООО "Экологические Технологии"</div>
-                <div>ИНН 4217127183 КПП 421701001</div>
-                <div>Платежные реквизиты :</div>
-                <div>р/с 40702810013030000704</div>
-                <div>БИК 044525411</div>
-                <div>ФИЛИАЛ "ЦЕНТРАЛЬНЫЙ" БАНКА ВТБ (ПАО)</div>
-                <div>к/с 301 018 101 452 500 00 411</div>
+            <div class="col border border-dark text-center"
+                [innerHTML]="settings.details_html">
             </div>
             <div class="col border border-dark text-center fs-5 fw-bold ">
                 <div class="mt-2">{{ data.tip }}</div>
@@ -94,7 +79,7 @@
             </tr>
             <tr>
                 <td class="text-start">Обращение с ТКО</td>
-                <td>111,45</td>
+                <td>{{ formatNum(settings.tarif_tko) }}</td>
                 <td>чел.</td>
                 <td>{{ data.pr }}</td>
                 <td>{{ formatNum(data.vh_saldo + data.vh_saldo_s) }}</td>
@@ -150,19 +135,7 @@
         <div class="mt-4">
             <div class="annotation">
                 <div class="text-center">Примечание:</div>
-                <div>
-                    Размер платы жителей за коммунальную услугу " обращение с ТКО " рассчитывается с учетом размера единого тарифа на услугу регионального
-                    оператора по зоне «Юг» Кемеровской области, утвержденного Региональной энергетической комиссией Кемеровской области, и количества
-                    проживающих (зарегистрированных) граждан по формуле:<br>
-                    Тариф на обращение с ТКО,мЗ Х Норматив накопления ТКО на 1человека, мЗ/rод / 12 месяцев<br>
-                    645,18 мЗ Х 2,073 мЗ/rод / 12 = 111,45 рублей на 1 человека в месяц<br>
-                    Отделение ООО «ЭкоТек» находится по адресу: г. Киселевск, ул. Транспортная, 54<br>
-                    Способы внесения оплаты за услугу по обращению с ТКО:<br>
-                    - в отделениях Сбербанк и Сбербанк-онлайн;<br>
-                    - отделениях Почты России;<br>
-                    - в кассе отделения ООО «Расчетный центр» (БЕЗ КОМИССИИ);<br>
-                    - через банкоматы ВТБ и ВТБ-онлайн (БЕЗ КОМИССИИ).<br><br>
-                </div>
+                <div [innerHTML]="settings.annotation_html"></div>
             </div>
         </div>
         <div class="soob mt-2">

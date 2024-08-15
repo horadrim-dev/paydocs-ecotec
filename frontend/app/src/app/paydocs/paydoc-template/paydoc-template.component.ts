@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogConfig } from 'primeng/dynamicdialog';
-import { Paydoc } from '../paydoc.model';
+import { Paydoc, PaydocSettings } from '../paydoc.model';
 import html2canvas from "html2canvas";
 
 interface MonthSet { [key:string]:any }
@@ -13,6 +13,7 @@ interface MonthSet { [key:string]:any }
 export class PaydocTemplateComponent implements OnInit {
 
   data: Paydoc;
+  settings: PaydocSettings;
   months: MonthSet = {
     "01": "январь", "02": "февраль", "03": "март", "04": "апрель", "05": "май", "06": "июнь", 
     "07": "июль", "08": "август", "09": "сентябрь", "10": "октябрь", "11": "ноябрь", "12": "декабрь",
@@ -25,7 +26,8 @@ export class PaydocTemplateComponent implements OnInit {
     private config: DynamicDialogConfig,
   )
   { 
-    this.data = this.config.data;
+    this.data = this.config.data.paydoc_data as Paydoc;
+    this.settings = this.config.data.settings as PaydocSettings;
     this.month = this.months[this.data.period.slice(4)];
     this.year = this.data.period.slice(0,4);
   }

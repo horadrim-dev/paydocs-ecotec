@@ -11,5 +11,6 @@ export class EnvironmentService {
   public debtorsUrl: string = environment.debtorsUrl;
   public paymentDocumentsUrl: string = environment.paymentDocumentsUrl;
   public paymentDocumentsCityListUrl: string = environment.paymentDocumentsCityListUrl;
+  public paymentDocumentsSettings: string = environment.paymentDocumentsSettings;
   constructor() { }
 }

@@ -52,3 +52,10 @@ export interface  PaydocFilter {
     fio: string | null,
     ad: string | null,
 }
+
+export interface  PaydocSettings {
+    tarif_tko: number,
+    contacts_html: string,
+    details_html: string,
+    annotation_html: string,
+}

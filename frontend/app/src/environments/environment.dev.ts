@@ -3,7 +3,8 @@ export const environment = {
   urlAddress: 'http://localhost:8003/api',
   jwtLogin: 'token',
   jwtRefresh: 'token/refresh',
-  paymentDocumentsUrl: 'payment-documents',
-  paymentDocumentsCityListUrl: 'payment-documents-city-list',
+  paymentDocumentsUrl: 'paydocs',
+  paymentDocumentsCityListUrl: 'paydocs-city-list',
+  paymentDocumentsSettings: 'paydocs-settings',
   debtorsUrl: 'debtors',
 };

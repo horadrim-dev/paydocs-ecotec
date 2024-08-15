@@ -10,7 +10,7 @@ class PaymentDocumentSettingsForm(forms.ModelForm):
         mode='html', 
         wordwrap=False,
         width="800px",
-        height="300px",
+        height="200px",
         tabsize=None,
         toolbar=False,
         )
@@ -21,7 +21,7 @@ class PaymentDocumentSettingsForm(forms.ModelForm):
         mode='html', 
         wordwrap=False,
         width="800px",
-        height="300px",
+        height="200px",
         tabsize=None,
         toolbar=False,
         )
@@ -32,7 +32,7 @@ class PaymentDocumentSettingsForm(forms.ModelForm):
         mode='html', 
         wordwrap=False,
         width="800px",
-        height="300px",
+        height="200px",
         tabsize=None,
         toolbar=False,
         )

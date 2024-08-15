@@ -5,6 +5,7 @@ import { FilterMetadata } from "primeng/api";
 import { ApiService } from "../shared/services/api.service";
 import { EnvironmentService } from "../shared/services/environment.service";
 import { City } from "../shared/models/city.model";
+import { PaydocSettings } from "./paydoc.model";
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,8 @@ export class PaydocService {
     
     getCities(): Observable<City[]> {
         return this._api.get<any>(this._env.paymentDocumentsCityListUrl);
+    }
+    getSettings(): Observable<PaydocSettings> {
+        return this._api.get<any>(this._env.paymentDocumentsSettings);
     }
 }
