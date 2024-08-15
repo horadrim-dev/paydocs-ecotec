@@ -35,8 +35,8 @@ export class PaydocTemplateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  formatNum(value:number) {
-    return (Math.round(value * 100) / 100).toFixed(2);
+  formatNum(value:number, decimals:number = 2) {
+    return (Math.round(value * 100) / 100).toFixed(decimals);
   }
 
   printComponent(cmpName:string) {
