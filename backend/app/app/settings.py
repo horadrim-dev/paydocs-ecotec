@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'django_prometheus',
+    'django_ace', # code editor https://github.com/django-ace/django-ace
 
     'debts',
     'paydocs',

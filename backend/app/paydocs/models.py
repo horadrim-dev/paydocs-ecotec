@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.cache import cache
 
 class PaymentDocument(models.Model):
     index = models.PositiveIntegerField("index", )
@@ -55,3 +55,47 @@ class PaymentDocument(models.Model):
         ordering = ['id']
         verbose_name = "платежный документ"
         verbose_name_plural = "платежные документы"
+
+
+
+        
+
+class PaymentDocumentSettings(models.Model):
+    """Singleton settings model """
+
+    tarif_tko = models.FloatField("Тариф ТКО", blank=True, null=True)
+    contacts_html = models.TextField("Блок с контактами", blank=True, null=True)
+    details_html = models.TextField("Блок с реквизитами", blank=True, null=True)
+    annotation_html = models.TextField("Блок с примечанием", blank=True, null=True)
+
+    def __str__(self):
+        return 'Настройки шаблона'
+
+
+    def save(self, *args, **kwargs):
+        """
+        Save object to the database. Removes all other entries if there
+        are any.
+        """
+        self.__class__.objects.exclude(id=self.id).delete()
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+
+    @classmethod
+    def load(cls):
+        """
+        Load object from the database. Failing that, create a new empty
+        (default) instance of the object and return it (without saving it
+        to the database).
+        """
+        try:
+            return cls.objects.get()
+        except cls.DoesNotExist:
+            return cls()
+        
+
+    class Meta:
+        db_table = "kvitok_settings"
+        verbose_name = "Настройки"
+        verbose_name_plural = "Настройки"

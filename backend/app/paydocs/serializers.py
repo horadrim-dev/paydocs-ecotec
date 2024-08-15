@@ -17,3 +17,11 @@ class PaymentDocumentCityListSerializer(serializers.ModelSerializer):
     class Meta:
         model = PaymentDocument
         fields = ('name', )
+
+
+class PaymentDocumentSettingsSerializer(serializers.Serializer):
+
+    tarif_tko = serializers.FloatField()
+    contacts_html = serializers.CharField()
+    details_html = serializers.CharField()
+    annotation_html = serializers.CharField()
