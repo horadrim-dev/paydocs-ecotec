@@ -36,7 +36,11 @@ export class PaydocTemplateComponent implements OnInit {
   }
 
   formatNum(value:number, decimals:number = 2) {
-    return (Math.round(value * 100) / 100).toFixed(decimals);
+    let multiplier: number = 1;
+    for (let i = 0; i < decimals; i++) {
+      multiplier = multiplier * 10
+    }
+    return (Math.round(value * multiplier) / multiplier).toFixed(decimals);
   }
 
   printComponent(cmpName:string) {
