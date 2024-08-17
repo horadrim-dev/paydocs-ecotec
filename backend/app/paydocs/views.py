@@ -40,7 +40,7 @@ class PaymentDocumentSettingsViewSet(viewsets.ViewSet):
     Provides singleton settings for payment document feature
     """
     authentication_classes = (JWTAuthentication,)
-    permission_classes = ( )
+    permission_classes = (IsAuthenticated, )
 
     def list(self, request):
         serializer = serializers.PaymentDocumentSettingsSerializer(

@@ -8,3 +8,4 @@ backend/app/mediafiles
 frontend/app/.angular
 backend/app/db.sqlite3
 frontend/app/.vscode
+backend/environments/test-prod.env
