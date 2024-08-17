@@ -8,10 +8,13 @@
 
 ## Demo
 Пользователь: su
+
 Пароль: 123
 
 Frontend endpoint https://paydocs.horadrim.keenetic.link
+
 Backend endpoint https://paydocs.horadrim.keenetic.link/api
+
 Админка:  https://paydocs.horadrim.keenetic.link/admin
 
 ## Stack
