@@ -91,8 +91,11 @@ export class DebtsTemplateComponent {
 
     this.summ_debt = this.itogo.ish_saldo;
 
-    let start_period = this.debts.at(0)?.period || "";
-    let end_period = this.debts.at(-1)?.period || "";
+    // let start_period = this.debts.at(0)?.period || "";
+    // let end_period = this.debts.at(-1)?.period || "";
+    console.log(this.filter);
+    let start_period = this.filter.min_period.date || "";
+    let end_period = this.filter.max_period.date || "";
     if (start_period) this.start_period = moment(start_period).format('DD.MM.YYYY')
     if (end_period) this.end_period = moment(end_period).format('DD.MM.YYYY')
   }

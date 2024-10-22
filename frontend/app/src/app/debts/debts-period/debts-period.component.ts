@@ -16,6 +16,7 @@ export class DebtsPeriodComponent implements OnInit{
   ){
     this.today = new Date();
     this.max_period = this.today;
+
   }
 
   ngOnInit(): void {
@@ -34,9 +35,11 @@ export class DebtsPeriodComponent implements OnInit{
       localStorage.setItem('debts-min-period', "");
     }
 
-    if (this.max_period > this.today) {
-      this.max_period = this.today;
-    }
+    // if (this.max_period > this.today) {
+    //   this.max_period = this.today;
+    // }
+
+    this.max_period = new Date(this.max_period.getFullYear(), this.max_period.getMonth() + 1, 1);
 
     this.dialogRef.close({
       min_period : this.min_period,
